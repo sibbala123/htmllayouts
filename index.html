@@ -7,118 +7,21 @@
     
     <!-- Bootstrap CSS -->
     <link href="styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     
     <script src="https://use.fontawesome.com/aaa89ad41b.js"></script>
 
    
   </head>
-  <body>
+  <body id="body">
+   
+    <table class="table" id="table">
       
-    <div class="side-bar" id="sidebar">
-        <div class="sidebar-brand"><h2><button class="togl" onclick="toggleclose()"><span class="fa fa-bars"></span></button>Currents</h2></div>
-       <div class="sidebar-menu">
-            <ul>
-           <li>
-               <a href=""><span class="fa fa-home"></span><span>home</span></a>
-            </li>
-            <li class="active">
-               <a href="" ><span class="fa fa-star"></span><span>starred</span></a>
-            </li>
-            <li>
-               <a href=""><span class="fa fa-hashtag"></span><span>tags</span></a>
-            </li>
-            <li>
-               <a href=""><span class="fa fa-users"></span><span>communities</span></a>
-            </li>
-            <li>
-               <a href=""><span class="fa fa-user-circle"></span><span>profile</span></a>
-            </li>
-            <li>
-               <a href=""><span class="fa fa-users"></span><span>People</span></a>
-            </li>
-            <li>
-               <a href=""><span class="fa fa-bell"></span><span>Notifications</span></a>
-            </li>
-            <li>
-               <a href=""><span >STREAMS</span></a>
-            </li>
-            <li>
-               <a href=""><span class="fa fa-asterisk"></span><span>All Posts</span><span class="numbers">45</span></a>
-            </li>
-            <li>
-               <a href=""><span class="fa fa-asterisk"></span></span><span>Leadership</span><span class="numbers">2</span></a>
-            </li>
-            <li>
-               <a href=""><span class="fa fa-asterisk"></span></span><span>Engineering</span><span class="numbers">10</span></a>
-            </li>
-            <li>
-               <a href=""><span class="fa fa-exclamation-circle">Send Your Feedback </span></a></div>
-            </li>
-           </ul>
-    </div>
-       </div>
-      <div class="mainbox">
-          <div class="toggle-content"><button class="togl" onclick="toggle()"><span class="fa fa-bars"></span></button><span>Currents</span></div>
-        <div class="main-content">
-            <header>
-                <div class="search-wrapper">
-                    
-                    <input type="text" placeholder="&#xf002;Search" style="font-family: FontAwesome, Arial; font-style: normal"/>
-                </div>
-                
-                
-                
-            </header>
-            <div class="header"><div class="card-single">
-                <img src="kabali.jpg" height="40px" width="30px"/>
-                <span><small>share an update</small></span>
-             </div>
-             <div><span class="fa fa-image"></span></div></div>
-             <div class="dropdown"><select name="subject" id="subject">
-                <option value="" selected="selected">sort by relevance</option>
-              </select></div> 
-            <main>
-                
-                
-                <div class="cards">
-                    <div class="card-single">
-                        <div class="user-info"><span><img src="kabali.jpg" height="60px" width="50px"></span>
-                           <span> <strong>  Yoobin Kim</strong><small>   HR analyst</small></br> 2h ago in<small> Global HR Team</small></span>
-                        </div>
-                        <div class="width"><p> hello everyone we are reviewing your employee handbook. Have you heard any feedback about areas for improvement?we want to make sure we incorporate input from offices across the globe. So please send any feedback you have gotten!</p></div>
-                        
-                        <img src="post.png" class="img" width="400px" height="300px"/>
-                        <div class="like-section"><span class="fa fa-thumbs-up"></span><span>8</span><span class="fa fa-arrow-right"></span><span>17</span><span class="fa fa-star"></span></div>
-                    </div>
-                </div>
-                
-            </main>
-        </div>
-        <div class="main-content-2"> <div class="user-wrapper">
-            <div><span class="fa fa-list"></span><img src="kabali.jpg" height="30px" width="20px"></div>
-            <div class="entity3">
-                <ul><li>Trending tags</li><li>#marketing</li><li>23 posts this week</li><li>#product-launch</li><li>20 products this week</li><li>#team-bonding</li><li>12 posts this week</li></ul>
-            </div>
-            
-        </div>
-        </div>
-  
-      </div>
-       
-
-     
-  <script>
-     const mediaQuery = window.matchMedia('(max-width: 768px)');
-      function toggle(){
-        document.getElementById("sidebar").style.left = "0px";
-        
-          console.log("its working");
-      }
-      if (mediaQuery.matches) {
-  function toggleclose(){
-    document.getElementById("sidebar").style.left = "-350px";
-  }
-}
+    </table>
+    
+    <div id="app"></div>
+  <script src="script.js">
+   
   </script>
   <!-- Footer -->
     <!-- Optional JavaScript; choose one of the two! -->
