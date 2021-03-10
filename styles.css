@@ -16,7 +16,10 @@ body {
     font-weight: normal;
     font-size: 2.6rem;
   }
-  
+  image{
+    height: 50%;
+    width: 50%;
+  }
   .animal {
     max-width: 650px;
     padding: 20px;
