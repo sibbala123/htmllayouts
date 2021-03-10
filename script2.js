@@ -77,9 +77,11 @@ function converter(template){
     let h1 = document.createElement(value.content1.name);
     h1.classList.add(value.content1.class);
     h1.innerText = value.content1.innerText;
-    div.innerHTML = `
-    <${value.content2.name} class ="${value.content2.class}"src= ${value.content2.src}></${value.content2.name}>`
-   
+    let img = document.createElement(value.content2.name);
+    img.classList.add(value.content2.class);
+    img.setAttribute("src",value.content2.src);
+    
+    div.appendChild(img);
    document.body.appendChild(div);
     div.appendChild(h1);
   }
@@ -89,25 +91,3 @@ function converter(template){
 }
 window.onload = converter(Template)  
 
-/*static iterateObj(input, output) {
-        for (var key in input) {
-            var value = input[key];
-          //  console.log("found",key,input[key])
-            if (operate.is(value) === 'Object') {
-                // console.log("Object",output);
-                var buffer = Entity.create(input, output, value.name);
-                process.iterateObj(input[key], buffer, key, value)
-                Entity.append(buffer, output);
-            } else if (operate.is(value) === 'Array') {
-                //  console.log("foundArray", key)
-                var buffer = Entity.create(input, output, key);
-                process.iterateArr(input[key], buffer, key, value)
-                Entity.append(buffer, output);
-                // console.log('Array',key, value, buffer);
-            } else if (operate.is(value) === 'String' || operate.is(value) === 'Boolean') {
-                //  console.log('String',key, value,output);
-                Entity.set(input, output, key, value);
-                //Entity.set(input,this.entity,key,value);           
-            }
-
-        */
