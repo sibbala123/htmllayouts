@@ -1,10 +1,11 @@
-body {
+.body {
     font-family: sans-serif;
     
     background-color: cornsilk;
     padding: 20px 0 28px 0;
     margin: 0;
   }
+ 
   
   img {
     max-width: 100%;
@@ -16,7 +17,7 @@ body {
     font-weight: normal;
     font-size: 2.6rem;
   }
-  image{
+  .image{
     height: 50%;
     width: 50%;
   }
