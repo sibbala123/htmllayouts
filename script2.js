@@ -46,6 +46,59 @@ content:[
       ]
    ]
   }
+  var arr = [{
+    name:"",
+    attributes:{id:"",class:"",src:""},
+    innerText:"",
+    subcontent: [
+      {name : "",
+      attributes:{id:"",class:"",src:""},
+      innerText:"",
+      }
+      ]
+       }];
+  var JsonModel = {
+    content : [{
+      name:"",
+      attributes:{id:"",class:"",src:""},
+      innerText:"",
+      subcontent: [
+        {name : "",
+        attributes:{id:"",class:"",src:""},
+        innerText:"",
+        }]},
+        {
+          name:"",
+          attributes:{id:"",class:"",src:""},
+          innerText:"",
+          subcontent: [
+            {name : "",
+            attributes:{id:"",class:"",src:""},
+            innerText:"",
+            }]},
+            {
+              name:"",
+              attributes:{id:"",class:"",src:""},
+              innerText:"",
+              subcontent: [
+                {name : "",
+                attributes:{id:"",class:"",src:""},
+                innerText:"",
+                }]},
+                {
+                  name:"",
+                  attributes:{id:"",class:"",src:""},
+                  innerText:"",
+                  subcontent: [
+                    {name : "",
+                    attributes:{id:"",class:"",src:""},
+                    innerText:"",
+                    }
+                  ]
+                }
+                  ]
+          }
+
 
 function setAttributes(name,attribute) {
 console.log("setattributes is called");
@@ -104,11 +157,13 @@ function process(HtmlModel){
     if (Array.isArray(value))
     {
       console.log("loop entered")
-      for (var i=0; i<=value.length;i++){
+      for (var i=0; i<value.length;i++){
+        console.log(i);
         entity2 = elementCreate(value[i]);
         console.log(entity2);
         document.getElementById("main-body").appendChild(entity2);
       }
+      console.log("loop exited");
     }
   else {
     entity = elementCreate(value);
@@ -120,8 +175,78 @@ function process(HtmlModel){
     
   
   }
-    
+  console.log("main loop exited")  
 }  
+class html2json{
+  constructor() {
+    console.log("constructor called");
+   
+  }
+  converter(model) {
+    console.log("class function called");
+    var json = model;
+    
+    var element = document.getElementsByTagName('div'); 
+              
+            for (var i = 0;i<element.length ;i++) { 
+              console.log(element[i]);
+                console.log(i);
+               this.retrieveAttributes(i,element[i]);
+
+            }
+            var element = document.getElementsByTagName('img'); 
+              
+            for (var i = 0;i<element.length ;i++) { 
+              console.log(element[i]);
+                console.log(i);
+               this.retrieveAttributes(i,element[i]);
+
+            }
+           
+             
+  }
+  retrieveAttributes(i,entity){
+{
+  console.log("attributes function is called")
+  console.log(i);
+  
+  if(entity.tagName == "DIV")
+ {
+  console.log("if loop entered");
+   JsonModel.content[i].name = entity.tagName;
+    JsonModel.content[i].innerText = entity.innerText;
+  let className = entity.getAttribute('class');
+  let idName = entity.getAttribute('id');
+  let srcName = entity.getAttribute('src');
+   JsonModel.content[i].attributes.class = className;
+   JsonModel.content[i].attributes.id = idName;
+   JsonModel.content[i].attributes.src = srcName;
+console.log(JsonModel.content[i].name);
+console.log(JsonModel);
+  }
+  else if(entity.tagName == "IMG")
+  {
+    console.log("else if loop entered");
+    JsonModel.content[i].subcontent[0].name = entity.tagName;
+    JsonModel.content[i].subcontent[0].innerText = entity.innerText;
+  let className = entity.getAttribute('class');
+  let idName = entity.getAttribute('id');
+  let srcName = entity.getAttribute('src');
+   JsonModel.content[i].subcontent[0].attributes.class = className;
+   JsonModel.content[i].subcontent[0].attributes.id = idName;
+   JsonModel.content[i].subcontent[0].attributes.src = srcName;
+console.log(JsonModel.content[i].subcontent[0].name);
+console.log(JsonModel);
+  }
+}
+
+  }
+ 
+}
 
 
-window.onload = process(HtmlModel) 
+
+window.onload = process(HtmlModel);
+console.log("function call ended");
+let obj = new  html2json;
+obj.converter(JsonModel); 
