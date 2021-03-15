@@ -1,6 +1,5 @@
 
-  
-  
+  /*  
 function setAttributes(name,attribute) {
 console.log("setattributes is called");
   console.log(name);
@@ -165,3 +164,4 @@ return 1;
 }
 console.log(parentModel);
 
+*/
