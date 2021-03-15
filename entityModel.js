@@ -105,6 +105,17 @@
                     src:""
                 },
                 content: [],
-            }            
+            }
+            var childModel = {
+              name: "",
+                     nodeType: '',
+                     attributes: {
+                         id: "",
+                         class: '',
+                         innerText: '',
+                         src:""
+                     },
+                     content: [],
+                 }                     
     
     
