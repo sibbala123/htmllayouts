@@ -11,7 +11,10 @@ this.iterateobj(req);
     entityObject1.name = req.input.tagname;
     entityObject1.attributes.id = req.input.id;
     entityObject1.attributes.class = req.input.class;
-    entityObject1.attributes.src = req.input.src;
+    var src = req.input.src
+    entityObject1.prototype.setSrc = function(src) {
+      this.set(src, this.attributes.src);
+  };
     for(var i=0;i<req.input.content.length;i++){
 entityObject1.content[i]= req.input.content[i];
 }

@@ -15,7 +15,10 @@
                      attributes: {
                          id: "main-div",
                          class: 'animal',
-                         src: '',
+                         src: {
+                           value: null,
+                           validator: [ 'isNotEmpty']
+                         },
                      },
                    
                    content:[
@@ -88,6 +91,20 @@
                   arguments : {input:"entityObject1", output:"entityObject2", parameter:elementCreateObject.args},
                   desiredOutput: []
               }   
-                            
+                     
+              
+            entityObject1.prototype.set = function(value, key) {
+                if (this.validator.validate(value, key.validator)) {
+                    key.value = value;
+                    return true;
+                }
+                return false;
+            };
+            
+            entityObject1.prototype.setSrc = function(name) {
+                this.set(src, this.attributes.src);
+            };
+            
+            
     
     
