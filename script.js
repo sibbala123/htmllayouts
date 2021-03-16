@@ -41,18 +41,27 @@ elementCreate(input){
   console.log(input);
  console.log("create function is called")
  
- if(!Array.isArray(elementCreateObject.args.content)){
- elementAppendObject.args.parent=input.method[0];
- input.method[2];
- elementAppendObject.args.child= input.method[1];
- input.method[3];
+ if(!Array.isArray(input.args.content)){
+ 
+ elementAppendObject.args.parent=input.method[0].objectModel.method.arguments;
+ input.method[1].arguments.name= input.name;
+ input.method[1].arguments.attributes= input.attributes;
+ input.method[1](input.name,input.attributes);
+ console.log("both the functions are called"); 
+ elementAppendObject.args.child= input.method[0].objectModel.method.arguments;
+ input.method[1].arguments.name= input.content.name;
+ input.method[1].arguments.attributes= input.content.attributes;
   this.elementAppend(elementAppendObject);
    }
    else{
      console.log("create else loop entered")
-    elementAppendObject.args.parent=document.getElementById("main-body");
-    input.method[2];
-    elementAppendObject.args.child= input.method[0];
+     elementAppendObject.args.child= input.method[0].method.arguments;
+     elementAppendObject.args.parent=document.getElementById("main-body");
+    input.method[1].arguments= input.name;
+    input.method[1].arguments= input.attributes;
+    input.method[1].method(input.method[1].arguments);
+    elementAppendObject.args.child= input.method[0].objectModel.method.arguments;
+    console.log( elementAppendObject.args.child);
      this.elementAppend(elementAppendObject);
      console.log("create else loop ended")
    }

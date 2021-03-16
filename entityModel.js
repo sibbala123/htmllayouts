@@ -6,8 +6,21 @@
               }
               var elementCreateObject ={
                   args:"",
-                  method:["document.createElement(elementCreate.args.name)","document.createElement(elementCreate.args.content.name)","this.setAttributes(elementCreate.args.name,elementCreate.args.attributes)","this.setAttributes(elementCreate.args.content.name,elementCreate.args.content.attributes)"]
-              }
+                  method:[{
+                      objectModel: document,
+                      method: 'document.createElement',
+                      arguments: ['elementCreateObject.args.name'],
+                      response: [],
+                     },
+                     {
+                      objectModel: window,
+                      method: 'setAttributes',
+                      arguments: [],
+                      response: [],
+                     
+                    }
+                  ]
+                }
               
               var entityObject1 = {
                   name: "div",
@@ -105,6 +118,6 @@
                 this.set(src, this.attributes.src);
             };
             
-            
+  
     
     
