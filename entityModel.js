@@ -4,23 +4,14 @@
                   args : {parent:"",child:""},
                   method: "req.args.parent.appendChild(req.args.child)",
               }
-              var elementCreateObject ={
-                  args:"",
-                  method:[{
-                      objectModel: document,
-                      method: 'document.createElement',
-                      arguments: ['elementCreateObject.args.name'],
-                      response: [],
-                     },
-                     {
-                      objectModel: window,
-                      method: 'setAttributes',
-                      arguments: [],
-                      response: [],
-                     
-                    }
-                  ]
-                }
+              var elementCreateObject =  { 
+                args:"",
+                objectModel:document, 
+                method: "document.createElement", 
+                argument:"input.args.name", 
+                andthen:{method:'setAttributes',
+                  args:["input.args.name","input.args.attributes"]} 
+                } 
               
               var entityObject1 = {
                   name: "div",

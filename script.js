@@ -44,25 +44,19 @@ elementCreate(input){
  if(!Array.isArray(input.args.content)){
  
  elementAppendObject.args.parent=input.method[0].objectModel.method.arguments;
- input.method[1].arguments.name= input.name;
- input.method[1].arguments.attributes= input.attributes;
- input.method[1](input.name,input.attributes);
+input.method[1](input.name,input.attributes);
  console.log("both the functions are called"); 
  elementAppendObject.args.child= input.method[0].objectModel.method.arguments;
- input.method[1].arguments.name= input.content.name;
- input.method[1].arguments.attributes= input.content.attributes;
-  this.elementAppend(elementAppendObject);
+ this.elementAppend(elementAppendObject);
    }
    else{
      console.log("create else loop entered")
-     elementAppendObject.args.child= input.method[0].method.arguments;
      elementAppendObject.args.parent=document.getElementById("main-body");
-    input.method[1].arguments= input.name;
-    input.method[1].arguments= input.attributes;
-    input.method[1].method(input.method[1].arguments);
-    elementAppendObject.args.child= input.method[0].objectModel.method.arguments;
+     elementAppendObject.args.child= input.method(input.argument);
+     console.log(input.method.input["argument"])
+    input.andthen.method.args;
     console.log( elementAppendObject.args.child);
-     this.elementAppend(elementAppendObject);
+   this.elementAppend(elementAppendObject);
      console.log("create else loop ended")
    }
 }
