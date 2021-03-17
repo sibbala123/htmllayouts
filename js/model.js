@@ -47,7 +47,7 @@ var elementAppendReq = {
 }
 //json2html
 var reqObject1 = {
-    objectModel: document,
+    objectModel: entity,
     method:'elementCreate',
     arguments : ['elementCreateObject'],
     andThen:[''],
@@ -55,7 +55,7 @@ var reqObject1 = {
 }
 //html2json
 var reqObject2 = {
-    objectModel: entity,
+    objectModel: document,
     method:'getElementById',
     arguments : ['main-body','entityObject1'],
     andThen : [''],
