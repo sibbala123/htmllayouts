@@ -23,32 +23,25 @@ var entityObject1 = {
 var ElementCreateObject = {
     reqName: 'ElementCreateObject',
     objectModel: document,
-    method: 'CreateElement',
-    arguments: ['name'],
+    method: 'createElement',
+    arguments: ['req.name'],
     response: [],
     andThen: ['setAttributesReq'],
 
 }
+
 var setAttributesReq = {
     reqName: 'setAttributesReq',
-    method: 'setAttributes',
-    arguments: ['name','attributes'],
+    method: 'setAttribute',
+    arguments: ['element','entityObject2.attributes'],
     response: [],
     andThen: ['']
 
 }
-var setAttributesReq = {
-    reqName: 'setAttributesReq',
-    method: 'setAttributes',
-    arguments: ['name','attributes'],
-    response: [],
-    andThen: ['']
-
-}
-var elementAppend = {
-    reqName: 'elementAppend',
-    method: 'setAttributes',
-    arguments: ['name','attributes'],
+var elementAppendReq = {
+    reqName: 'elementAppendReq',
+    method: 'appendChild',
+    arguments: ['parent','child'],
     response: [],
     andThen: ['']
 }
@@ -56,13 +49,13 @@ var elementAppend = {
 var reqObject1 = {
     objectModel: ElementCreateObject,
     callbackMethod:[""],
-    arguments : ['EntityObject2','EntityObject1'],
+    arguments : ['entityObject2','entityObject1'],
     desiredOutput: []
 }
 //html2json
 var reqObject2 = {
     objectModel: document,
     Method:["getElementById"],
-    arguments : ['main-body'],
-    desiredOutput: ['EntityObject1']
+    arguments : ['main-body','entityObject1'],
+    desiredOutput: []
 }
