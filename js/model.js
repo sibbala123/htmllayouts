@@ -55,7 +55,7 @@ var reqObject1 = {
 }
 //html2json
 var reqObject2 = {
-    objectModel: "entity",
+    objectModel: entity,
     Method:["getElementById"],
     arguments : ['main-body','entityObject1'],
     andThen : [''],
