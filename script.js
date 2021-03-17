@@ -8,31 +8,27 @@ this.iterateobj(req);
     {
     console.log("main if loop entered");
     var input = req.arguments.input;
-    entityObject1.name = req.input.tagname;
-    entityObject1.attributes.id = req.input.id;
-    entityObject1.attributes.class = req.input.class;
-    var src = req.input.src
-    entityObject1.prototype.setSrc = function(src) {
-      this.set(src, this.attributes.src);
-  };
-    for(var i=0;i<req.input.content.length;i++){
-entityObject1.content[i]= req.input.content[i];
+    entityObject1.name = input.tagname;
+    entityObject1.attributes.id = input.id;
+  entityObject1.attributes.class = input.class;
+
+ 
+    for(var i=0;i<input.content.length;i++){
+entityObject1.content[i]= input.content[i];
 }
  }
    else if((req.arguments.input) == reqObject2.arguments.input )
         {
          
+         console.log("malin else if called");
           elementCreateObject.args = entityObject1;
           console.log(elementCreateObject.args);
           this.elementCreate(elementCreateObject);
-          console.log("main elseif loop entered");
-        }
-    else{
-      console.log("main else loop entered"); 
-for  (var i = 0; i < req.length; i++)
+           
+for  (var i = 0; i < entityObject1.content.length; i++)
   { 
-    elementCreate.args = req[i]; 
-    elementCreate(elementCreate);
+    elementCreateObject.args = entityObject1.content[i]; 
+    this.elementCreate(elementCreateObject);
   }
     }  
   }
@@ -43,36 +39,44 @@ elementCreate(input){
  
  if(!Array.isArray(input.args.content)){
  
- elementAppendObject.args.parent=input.method[0].objectModel.method.arguments;
-input.method[1](input.name,input.attributes);
- console.log("both the functions are called"); 
- elementAppendObject.args.child= input.method[0].objectModel.method.arguments;
- this.elementAppend(elementAppendObject);
+  input.argument = input.args.name;
+  input.arg.attribute=input.args.attributes;
+  elementAppendObject.args.parent= input.objectModel[input.method](input.argument);
+  this[input.method2](elementAppendObject.args.parent,input.arg.attribute);
+  input.argument = input.args.content.name;
+  input.arg.attribute=input.args.content.attributes;
+   elementAppendObject.args.child= input.objectModel[input.method](input.argument);
+   this[input.method2](elementAppendObject.args.child,input.arg.attribute);
+   this.elementAppend(elementAppendObject);
    }
    else{
-     console.log("create else loop entered")
+    
      elementAppendObject.args.parent=document.getElementById("main-body");
-     elementAppendObject.args.child= input.method(input.argument);
-     console.log(input.method.input["argument"])
-    input.andthen.method.args;
-    console.log( elementAppendObject.args.child);
+     input.argument = input.args.name
+     elementAppendObject.args.child= input.objectModel[input.method](input.argument);
+     
+     input.arg.name=input.args.name;
+     input.arg.attribute=input.args.attributes;
+     this[input.method2](elementAppendObject.args.child,input.arg.attribute);
+    
    this.elementAppend(elementAppendObject);
-     console.log("create else loop ended")
+  
    }
 }
 setAttributes(Name,attribute){
-    console.log("setattributes is called");
-      console.log(Name);
+ 
       for( var key in attribute){
      Name.setAttribute(key,attribute[key]);
-     
-    console.log(key);
-    console.log(attribute[key]);
-    }
+     }
     } 
  elementAppend(req) {
-        
-        req.method;
+  
+  if(req.args.parent.tagName == "DIV"){
+   
+    var body = document.getElementById("main-div");
+    body.appendChild(req.args.parent);
+  }    
+  req.args.parent[req.method](req.args.child);
       }
  
       }

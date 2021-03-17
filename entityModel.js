@@ -1,16 +1,18 @@
 
                  
                  var elementAppendObject ={
+                  objectModel:document,
                   args : {parent:"",child:""},
-                  method: "req.args.parent.appendChild(req.args.child)",
+                  method: "appendChild",
               }
               var elementCreateObject =  { 
                 args:"",
                 objectModel:document, 
-                method: "document.createElement", 
-                argument:"input.args.name", 
-                andthen:{method:'setAttributes',
-                  args:["input.args.name","input.args.attributes"]} 
+                method: "createElement",
+                Object:elementCreateObject,
+                argument: "", 
+                method2:'setAttributes',
+                  arg:{name:"",attribute:""} 
                 } 
               
               var entityObject1 = {
@@ -78,7 +80,8 @@
                    id: " ",
                       class: " ",
                       innerText: "",
-                      src:" "
+                      src:{value: null,
+                      validator: [ 'isNotEmpty']}
                   },
                   content: [],
               }
@@ -97,7 +100,7 @@
               }   
                      
               
-            entityObject1.prototype.set = function(value, key) {
+            entityObject2.prototype.set = function(value, key) {
                 if (this.validator.validate(value, key.validator)) {
                     key.value = value;
                     return true;
@@ -105,7 +108,7 @@
                 return false;
             };
             
-            entityObject1.prototype.setSrc = function(name) {
+            entityObject2.prototype.setSrc = function(name) {
                 this.set(src, this.attributes.src);
             };
             
