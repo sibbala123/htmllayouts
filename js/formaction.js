@@ -1,9 +1,9 @@
 class process{
  constructor(req){
-     this.processReq(req)
+     process.processReq(req)
  }   
 static processReq(req){
-    this.execReq(req)
+    process.execReq(req)
 
 }
 static iterateObj(object){
@@ -13,7 +13,7 @@ static iterateObj(object){
 }
 static execReq(req){
     
-    entity[req.method](req.arguments)[req.andThen];
+    req.objectModel[req.method](req.arguments);
     
    }   
 
