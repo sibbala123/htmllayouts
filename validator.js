@@ -13,3 +13,14 @@ Validator.prototype.isNotEmpty = function(value) {
     }
     return false;
 };
+entityObject2.prototype.set = function(value, key) {
+    if (this.validator.validate(value, key.validator)) {
+        key.value = value;
+        return true;
+    }
+    return false;
+};
+
+entityObject2.prototype.setSrc = function(name) {
+    this.set(src, this.attributes.src);
+};

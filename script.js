@@ -6,23 +6,19 @@ this.iterateobj(req);
     iterateobj(req){
     if((req.arguments.input) == reqObject1.arguments.input)
     {
-    console.log("main if loop entered");
+    ;
     var input = req.arguments.input;
     entityObject1.name = input.tagname;
     entityObject1.attributes.id = input.id;
-  entityObject1.attributes.class = input.class;
-
- 
-    for(var i=0;i<input.content.length;i++){
-entityObject1.content[i]= input.content[i];
-}
+    entityObject1.attributes.class = input.class;
+   for(var i=0;i<input.content.length;i++)
+   {
+    entityObject1.content[i]= input.content[i];
+    }
  }
    else if((req.arguments.input) == reqObject2.arguments.input )
         {
-         
-         console.log("malin else if called");
           elementCreateObject.args = entityObject1;
-          console.log(elementCreateObject.args);
           this.elementCreate(elementCreateObject);
            
 for  (var i = 0; i < entityObject1.content.length; i++)
@@ -34,9 +30,7 @@ for  (var i = 0; i < entityObject1.content.length; i++)
   }
 
 elementCreate(input){
-  console.log(input);
- console.log("create function is called")
- 
+  
  if(!Array.isArray(input.args.content)){
  
   input.argument = input.args.name;
@@ -64,22 +58,21 @@ elementCreate(input){
    }
 }
 setAttributes(Name,attribute){
- 
-      for( var key in attribute){
+  for( var key in attribute)
+  {
      Name.setAttribute(key,attribute[key]);
-     }
+  }
     } 
  elementAppend(req) {
-  
-  if(req.args.parent.tagName == "DIV"){
-   
-    var body = document.getElementById("main-div");
-    body.appendChild(req.args.parent);
+  if(req.args.parent.tagName == "DIV")
+  {
+   var body = document.getElementById("main-div");
+   body.appendChild(req.args.parent);
   }    
   req.args.parent[req.method](req.args.child);
-      }
+  }
  
-      }
+}
      
       
 json2html = new process(reqObject2);
