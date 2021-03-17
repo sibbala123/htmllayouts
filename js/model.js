@@ -8,6 +8,17 @@ var entityObject1 = {
        },
     content:[]   
     }
+ var entityObject2= {
+    name:"div",
+    attributes:{id:"",class:"animal",src:""},
+    innerText:"how are you",
+    content: 
+      {name : "img",
+      attributes:{id:"",class:"image",src:"https://learnwebcode.github.io/json-example/images/dog-1.jpg"},
+      innerText:"",
+      }
+      
+       }   
 
 var ElementCreateObject = {
     reqName: 'ElementCreateObject',
@@ -41,12 +52,14 @@ var elementAppend = {
     response: [],
     andThen: ['']
 }
+//json2html
 var reqObject1 = {
     objectModel: ElementCreateObject,
     callbackMethod:[""],
     arguments : ['EntityObject2','EntityObject1'],
     desiredOutput: []
 }
+//html2json
 var reqObject2 = {
     objectModel: document,
     Method:["getElementById"],
