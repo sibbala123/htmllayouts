@@ -20,11 +20,11 @@ var entityObject1 = {
       
        }   
 
-var ElementCreateObject = {
+var elementCreateObject = {
     reqName: 'ElementCreateObject',
     objectModel: document,
     method: 'createElement',
-    arguments: ['req.name'],
+    arguments: ['entityObject2.name','element','entityObject2.attributes'],
     response: [],
     andThen: ['setAttributesReq'],
 
@@ -47,15 +47,17 @@ var elementAppendReq = {
 }
 //json2html
 var reqObject1 = {
-    objectModel: ElementCreateObject,
-    callbackMethod:[""],
-    arguments : ['entityObject2','entityObject1'],
-    desiredOutput: []
+    objectModel: document,
+    method:['elementCreate'],
+    arguments : ['elementCreateObject'],
+    andThen:[''],
+    response: ['']
 }
 //html2json
 var reqObject2 = {
-    objectModel: document,
+    objectModel: "entity",
     Method:["getElementById"],
     arguments : ['main-body','entityObject1'],
+    andThen : [''],
     desiredOutput: []
 }

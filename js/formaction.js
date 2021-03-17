@@ -1,27 +1,27 @@
 class process{
-processReq(req){
-    if(req == reqObject1){
-        this.iterateObj(req)
-    }
-    if(req == reqObject2){
-        this.iterateObj(req)
-    }
+ constructor(req){
+     this.processReq(req)
+ }   
+static processReq(req){
+    this.execReq(req)
 
 }
-iterateObj(req){
-   if(operate.isObject(req[arguments][0]))
-    {
-       var element = entity.elementCreate(req[arguments][0],ElementCreateObject);
-       entity.setAttributes(setAttributesReq);
-       var parent = document.getElementById("main-body")
-       var child = element;
-       entity.elementAppend(elementAppendReq);
-    }
+static iterateObj(object){
+   for(var key in object){
 
+   }
 }
+static execReq(req){
+    
+    entity[req.method](req.arguments)[req.andThen];
+    
+   }   
+
+
 }
 class operate{
-    isObject(value){
+    
+    static isObject(value){
         if(typeof(value)=="object"){
             return true;
         }
@@ -32,20 +32,22 @@ class operate{
 
 }
 class entity{
-elementCreate(req,object){
-var entity = object.objectModel[object.method](object.arguments);
-this[object.andThen](setAttributesReq);
-}
-SetAttributes(req){
+static elementCreate(req){
+        console.log("element create function called");
+    var entity = object.objectModel[object.method](object.arguments);
+    }
+static SetAttributes(req){
+    console.log("set attribures function called");
     for( var key in req[arguments][1] )
     {
         req[arguments][0][req.method](key,req[arguments][1][key]);
     }
 
 }
-elementAppend(req){
+static elementAppend(req){
     req[arguments][0][req.method](req[arguments][1]);
 
 }
 
 }
+json2html = new process(reqObject1);
