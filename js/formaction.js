@@ -1,19 +1,31 @@
 class process{
- constructor(req){
-     process.processReq(req)
+constructor(req){
+     console.log(req);
+     process.processReq(req);
  }   
 static processReq(req){
-    process.execReq(req)
+    var input = req.arguments[0];
+    var output = req.arguments[1];
+    process.iterateObj(input,output);
 
 }
-static iterateObj(object){
-   for(var key in object){
+static iterateObj(input,output){
+   
+       if(output == "Html"){
+       for(var key in entityObject2)   
+        entity.create(input);
+       
+        }
+       else if(output == "json"){
+           entity.create(json)
+       
 
    }
 }
 static execReq(req){
     
-    req.objectModel[req.method](req.arguments);
+   req.response = req.objecModel[req.method](req.arguments)[andThen];
+   return response;
     
    }   
 
@@ -32,16 +44,11 @@ class operate{
 
 }
 class entity{
-static elementCreate(req){
-        console.log("element create function called");
-    var entity = object.objectModel[object.method](object.arguments);
+static create(input){
+        process.execReq(input);
     }
-static SetAttributes(req){
-    console.log("set attribures function called");
-    for( var key in req[arguments][1] )
-    {
-        req[arguments][0][req.method](key,req[arguments][1][key]);
-    }
+static SetAttributes(){
+    
 
 }
 static elementAppend(req){
@@ -50,4 +57,4 @@ static elementAppend(req){
 }
 
 }
-json2html = new process(reqObject1);
+new process(reqObject1);

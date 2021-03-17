@@ -24,7 +24,7 @@ var elementCreateObject = {
     reqName: 'ElementCreateObject',
     objectModel: document,
     method: 'createElement',
-    arguments: ['entityObject2.name','element','entityObject2.attributes'],
+    arguments: [entityObject2.name],
     response: [],
     andThen: ['setAttributesReq'],
 
@@ -33,7 +33,7 @@ var elementCreateObject = {
 var setAttributesReq = {
     reqName: 'setAttributesReq',
     method: 'setAttribute',
-    arguments: ['element','entityObject2.attributes'],
+    arguments: [entityObject2.name,entityObject2.attributes],
     response: [],
     andThen: ['']
 
@@ -47,9 +47,9 @@ var elementAppendReq = {
 }
 //json2html
 var reqObject1 = {
-    objectModel: entity,
+    objectModel: entity ,
     method:'elementCreate',
-    arguments : ['elementCreateObject'],
+    arguments : ['elementCreateObject','Html'],
     andThen:[''],
     response: ['']
 }
